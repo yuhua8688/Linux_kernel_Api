@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110523;15593300">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110523;16133900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">Printk</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">头文件：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#include
+&lt;linux/kernel.h&gt;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">原形：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">asmlinkage
+int printk(const char * fmt, ...)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">	__attribute__
+((format (printf, 1, 2))) __cold;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">作用：</P>
+<P STYLE="margin-bottom: 0in">打印内核消息<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">,</SPAN></FONT></FONT>常用于调试</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">例：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+dbg(fmt,arg) printk(KERN_ALERT fmt,##arg)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">int
+i=10;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">dbg(“i
+val is %d”,i);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">等价于</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">printk(KERN_ALERT
+“i val is %d”,i)</SPAN></FONT></FONT>；</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">##</SPAN></FONT></FONT>的作用是当可变参数为<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">0</SPAN></FONT></FONT>时，去除“，”号</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">注备：</P>
+<P STYLE="margin-bottom: 0in">日志级别一共有<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">8</SPAN></FONT></FONT>个级别，<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">printk</SPAN></FONT></FONT>的日志级别定义如下（在<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">include/linux/kernel.h</SPAN></FONT></FONT>中）：
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_EMERG 0/*</SPAN></FONT></FONT>紧急事件消息，系统崩溃之前提示，表示系统不可用<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_ALERT 1/*</SPAN></FONT></FONT>报告消息，表示必须立即采取措施<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_CRIT 2/*</SPAN></FONT></FONT>临界条件，通常涉及严重的硬件或操作失败<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_ERR 3/*</SPAN></FONT></FONT>错误条件，驱动程序常用<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">KERN_ERR</SPAN></FONT></FONT>来报告硬件的错误<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_WARNING 4/*</SPAN></FONT></FONT>警告条件，对可能出现问题的情况进行警告<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_NOTICE 5/*</SPAN></FONT></FONT>正常但又重要的条件，用于提醒<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_INFO 6/*</SPAN></FONT></FONT>提示信息，如驱动程序启动时，打印硬件信息<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">　　<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+KERN_DEBUG 7/*</SPAN></FONT></FONT>调试级别的消息<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

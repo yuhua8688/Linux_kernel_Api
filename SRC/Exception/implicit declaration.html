@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110513;12235000">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;12253600">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">implicit
+declaration</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">错误：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">/root/projects/g_mem/src/g_mem_driver.c:41:
+error: implicit declaration of function ‘copy_to_user’</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">原因：</P>
+<P STYLE="margin-bottom: 0in">未包含头文件或未定义声明</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">更正：</P>
+<P STYLE="margin-bottom: 0in">针对这点</P>
+<P STYLE="margin-bottom: 0in">加入<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#include
+&lt;asm/uaccess.h&gt;</SPAN></FONT></FONT></P>
+</BODY>
+</HTML>

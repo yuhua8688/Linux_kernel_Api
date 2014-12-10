@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110512;16143300">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;9373600">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">CPU</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">异常代码：
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544541] BUG: unable to handle kernel NULL pointer dereference at
+(null) </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544544] IP: [&lt;f82e7095&gt;] gmem_init+0x95/0xe5 [gmem_driver] </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544549] *pdpt = 000000002cf25001 *pde = 0000000000000000 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544552] Oops: 0002 [#1] SMP </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544555] last sysfs file:
+/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544557] Modules linked in: gmem_driver(+) binfmt_misc ppdev
+kvm_intel kvm nfsd exportfs nfs lockd nfs_acl auth_rpcgss sunrpc
+joydev snd_hda_codec_intelhdmi snd_hda_codec_realtek fbcon tileblit
+font bitblit softcursor vga16fb vgastate snd_hda_intel snd_hda_codec
+snd_hwdep snd_pcm_oss snd_mixer_oss snd_pcm snd_seq_dummy snd_seq_oss
+snd_seq_midi snd_rawmidi snd_seq_midi_event snd_seq snd_timer
+snd_seq_device i915 drm_kms_helper drm jmb38x_ms snd psmouse
+serio_raw r8192se_pci intel_agp memstick agpgart i2c_algo_bit
+sdhci_pci sdhci led_class soundcore snd_page_alloc video output lp
+parport usbhid hid r8169 mii </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544598] </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544601] Pid: 2629, comm: insmod Not tainted
+(2.6.32-28-generic-pae #55-Ubuntu) dynabook AXW/60KW </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544603] EIP: 0060:[&lt;f82e7095&gt;] EFLAGS: 00210246 CPU: 0 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544606] EIP is at gmem_init+0x95/0xe5 [gmem_driver] </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544608] EAX: 00000000 EBX: 00000000 ECX: ffffffcd EDX: 00000008 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544610] ESI: f82bd2a0 EDI: 00000000 EBP: ecf21f5c ESP: ecf21f50 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544612] DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544614] Process insmod (pid: 2629, ti=ecf20000 task=ecf13300
+task.ti=ecf20000) </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544615] Stack: </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544617] f82bd1c3 ecf21f78 fffffffc ecf21f88 c0103041 f82bd2a0
+c07ab500 fffffffc </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544622] &lt;0&gt; f82bd2a0 4018cff4 f82e7000 fffffffc f82bd2a0
+4018cff4 ecf21fac c018aba0 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544628] &lt;0&gt; f019eff8 ecf13300 f019efc0 00000014 09cc8018
+09cc8018 00004000 ecf20000 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544634] Call Trace: </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544639] [&lt;c0103041&gt;] ? do_one_initcall+0x31/0x190 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544642] [&lt;f82e7000&gt;] ? gmem_init+0x0/0xe5 [gmem_driver] </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544646] [&lt;c018aba0&gt;] ? sys_init_module+0xb0/0x210 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544650] [&lt;c01097ac&gt;] ? syscall_call+0x7/0xb </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544651] Code: 28 d4 2b f8 c7 05 4c d4 2b f8 a0 d2 2b f8 e8 f3 f4
+f2 c7 89 c3 c7 04 24 c3 d1 2b f8 e8 ab b2 2c c8 a1 6c d4 2b f8 85 db
+8d 50 08 &lt;c7&gt; 00 00 00 00 00 c7 40 04 01 00 00 00 89 50 08 89
+50 0c 74 14 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544683] EIP: [&lt;f82e7095&gt;] gmem_init+0x95/0xe5 [gmem_driver]
+SS:ESP 0068:ecf21f50 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544687] CR2: 0000000000000000 </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">[
+356.544690] ---[ end trace 69c3afa518ad97c1 ]--- </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">原代码：
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+gmem_dev_t{ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//............
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+semaphore *sem; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">};
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+gmem_dev_t gmem_dev; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+ssize_t gmem_read(struct file *filp, char __user *buff,size_t
+count,loff_t *ops){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">down(gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">up(gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+count; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+ssize_t gmem_write(struct file *filp,const char __user *buff,size_t
+count,loff_t *ops){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">down(gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">up(gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+count; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+__init int gmem_init(void){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//..................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//sema_init(gmem_dev.sem,
+1); </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">init_MUTEX(gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//.........
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+0; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">出错地方：在加载</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">init_MUTEX(gmem_dev.sem);
+</SPAN></FONT></SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">读写均出错
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">出错原因：
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">因为</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">struct
+semaphore *sem;</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">的</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">sem</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">指针没有指向</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">struct
+semaphore</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">变量
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">更改：
+</FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+gmem_dev_t{ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//............
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+semaphore sem; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">};
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+gmem_dev_t gmem_dev; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+ssize_t gmem_read(struct file *filp, char __user *buff,size_t
+count,loff_t *ops){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">down(&amp;gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">up(&amp;gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+count; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+ssize_t gmem_write(struct file *filp,const char __user *buff,size_t
+count,loff_t *ops){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">down(&amp;gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//...................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">up(&amp;gmem_dev.sem);
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+count; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+__init int gmem_init(void){ </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//..................
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">//sema_init(</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">＆</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">gmem_dev.sem,
+1); </SPAN></FONT></SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">init_MUTEX(</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">＆</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">gmem_dev.sem);
+</SPAN></FONT></SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">//.........
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+0; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}
+</SPAN></FONT></FONT>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110513;15343100">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;15363600">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">Bad
+address</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">错误现像<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">root@calos-laptop:~#
+cat /dev/g_mem </SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">cat:
+/dev/g_mem: Bad address</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#cat
+/proc/kmsg</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">&lt;1&gt;[
+1040.887292] read </SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">&lt;1&gt;[
+1040.887301] read erro </SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">原代码<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">static
+ssize_t gmem_read(struct file *filp, char __user *buff,size_t
+count,loff_t *ops){</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">unsigned
+int p=*ops;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">if(count&gt;g_mem_dev.size)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">count=g_mem_dev.size-count;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">if(copy_to_user(buff,(void
+*)(g_mem_dev.mem+p),count)){</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">      <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">printk(KERN_ALERT&quot;read
+erro \n&quot;);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">return
+-EFAULT;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">原因：<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">   <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">count=g_mem_dev.size-count;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">更改后代码<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">if(count&gt;g_mem_dev.size)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">count=g_mem_dev.size-p;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">if(copy_to_user(buff,(void
+*)(g_mem_dev.mem+p),count)){</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">      <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">printk(KERN_ALERT&quot;read
+erro \n&quot;);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">    <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">return
+-EFAULT;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+</BODY>
+</HTML>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110523;17541900">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110523;18012000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">request_irq</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">头文件： 
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#include
+&lt;linux/interrupt.h&gt;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">原形： 
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">static
+inline int __must_check</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">request_irq(unsigned
+int irq, irq_handler_t handler, unsigned long flags,</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">	
+   const char *name, void *dev)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">{</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">	return
+request_threaded_irq(irq, handler, NULL, flags, name, dev);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">作用：</P>
+<P STYLE="margin-bottom: 0in">申请注册中断</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">参数：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">irq
+</SPAN></FONT></FONT>注册的中断号</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">handler
+</SPAN></FONT></FONT>中断处理方法</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">flags
+</SPAN></FONT></FONT>中断标志</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">name
+</SPAN></FONT></FONT>设备名称</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">dev
+</SPAN></FONT></FONT>一般传入设备此时<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">handler</SPAN></FONT></FONT>的第二个参数就为该设备，不用也可为<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">NULL</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in">附：</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">/*</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+These flags used only by the kernel as part of the</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+irq handling routines.</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_DISABLED - keep irqs disabled when calling the action handler</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_SAMPLE_RANDOM - irq is used to feed the random generator</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_SHARED - allow sharing the irq among several devices</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_PROBE_SHARED - set by callers when they expect sharing
+mismatches to occur</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_TIMER - Flag to mark this interrupt as timer interrupt</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_PERCPU - Interrupt is per cpu</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_NOBALANCING - Flag to exclude this interrupt from irq balancing</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_IRQPOLL - Interrupt is used for polling (only the interrupt that
+is</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+               registered first in an shared interrupt is considered
+for</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+               performance reasons)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+IRQF_ONESHOT - Interrupt is not reenabled after the hardirq handler
+finished.</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+               Used by threaded interrupts which need to keep the</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*
+               irq line disabled until the threaded handler has been
+run.</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">*/</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_DISABLED		0x00000020</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_SAMPLE_RANDOM	0x00000040</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_SHARED		0x00000080</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_PROBE_SHARED	0x00000100</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_TIMER		0x00000200</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_PERCPU		0x00000400</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_NOBALANCING	0x00000800</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_IRQPOLL		0x00001000</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">#define
+IRQF_ONESHOT		0x00002000</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

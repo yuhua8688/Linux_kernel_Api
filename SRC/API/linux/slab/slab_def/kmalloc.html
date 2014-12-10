@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110512;17462300">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;9364600">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin-left: 0.11in; margin-right: 0.2in; margin-top: 0.79in; margin-bottom: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">Kmalloc</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">头文件：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#include
+&lt;linux/slab.h&gt;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">注：实际存在于
+</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">linux/slab_def.h</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">中</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">原形：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+__always_inline void *kmalloc(size_t size, gfp_t flags)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+kmem_cache *cachep;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">void
+*ret;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">if
+(__builtin_constant_p(size)) {</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+i = 0;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">if
+(!size)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+ZERO_SIZE_PTR;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#define
+CACHE(x) \</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">if
+(size &lt;= x) \</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">goto
+found; \</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">else
+\</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">i++;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#include
+&lt;linux/kmalloc_sizes.h&gt;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#undef
+CACHE</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+NULL;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">found:</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#ifdef
+CONFIG_ZONE_DMA</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">if
+(flags &amp; GFP_DMA)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">cachep
+= malloc_sizes[i].cs_dmacachep;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#endif</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">cachep
+= malloc_sizes[i].cs_cachep;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ret
+= kmem_cache_alloc_trace(size, cachep, flags);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+ret;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+__kmalloc(size, flags);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">作用：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">动态分配内存，由</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">kfree</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">释放</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">参数：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">size
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">要分本内存的大小</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">flags
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">标志通常有
+</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_KERNEL</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">（阻塞）、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_ATOMIC</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">（非阻塞，可在中断中用）</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">不常用的还有</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_USER</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_HIGHUSER</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_NOIO</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">GFP_NOFS</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">__GFP_DMA</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">__GFP_HIGHMEM</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">__GFP_COLD</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">__GFP_NOWARN</SPAN></SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">、</SPAN></FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">__GFP_HIGH</SPAN></SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">、</SPAN></FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">__GFP_REPEAT</SPAN></SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">、</SPAN></FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">__GFP_NOFAIL</SPAN></SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">、</SPAN></FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US"><SPAN STYLE="font-weight: normal">__GFP_NORETRY</SPAN></SPAN></FONT></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+</BODY>
+</HTML>

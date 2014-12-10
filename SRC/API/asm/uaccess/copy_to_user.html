@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110513;8084600">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;9310700">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">copy_to_user</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">头文件：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#include
+&lt;asm/uaccess.h&gt;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">注：或在</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">asm-generic/uaccess.h</SPAN></FONT></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">原形：</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">static
+inline long copy_to_user(void __user *to,</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">const
+void *from, unsigned long n)</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">{</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">might_sleep();</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">if
+(access_ok(VERIFY_WRITE, to, n))</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+__copy_to_user(to, from, n);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">else</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">return
+n;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">}</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">作用：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">从内核空间向用户空间拷贝数据</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">参数：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">to
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">用户空间地址</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">from
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">内核空间地址</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">n
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">拷贝的长度</FONT></P>
+</BODY>
+</HTML>

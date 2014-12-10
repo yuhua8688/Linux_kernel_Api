@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110512;19181200">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;9352300">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+		A:link { so-language: zxx }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">down_trylock</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">头文件：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">#include
+&lt;linux/semaphore.h&gt; </SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">原形：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+__must_check down_trylock(struct semaphore *sem);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">作用：</FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT SIZE=2 STYLE="font-size: 10pt">获取信号量，它如果能够立刻获得，它就获得该含量量并反回</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">0</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">，失败就返回非</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">0</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">，因些可以在中断上下文中使用</FONT></P>
+</BODY>
+</HTML>

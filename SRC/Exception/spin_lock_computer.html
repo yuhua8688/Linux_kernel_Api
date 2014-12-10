@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110513;15364000">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;15372900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_lock
+</SPAN></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0in">死机问题<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">现像驱动多次打开后死机<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">,</SPAN></FONT></FONT>只能强制关机后重起<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">原代码<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">int
+gmem_open(struct inode *inode,struct file *filp){</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spinlock_t
+spinlock;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_lock(&amp;spinlock);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">test++;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_unlock(&amp;spinlock);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">｝<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">更改<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"><FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">int
+gmem_open(struct inode *inode,struct file *filp){</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in"> <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spinlock_t
+spinlock;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_lock_init(&amp;spinlock);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_lock(&amp;spinlock);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">test++;</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">  <FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US">spin_unlock(&amp;spinlock);</SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in">｝<FONT FACE="DejaVu Serif, serif"><FONT SIZE=3><SPAN LANG="en-US"></SPAN></FONT></FONT></P>
+</BODY>
+</HTML>

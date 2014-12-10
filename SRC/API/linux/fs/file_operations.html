@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.2  (Linux)">
+	<META NAME="AUTHOR" CONTENT="root ">
+	<META NAME="CREATED" CONTENT="20110512;14145600">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+	<META NAME="CHANGED" CONTENT="20110513;9331500">
+	<META NAME="CHANGEDBY" CONTENT="root ">
+</HEAD>
+<BODY LANG="zh-CN" DIR="LTR">
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+file_operations xxx;</SPAN></FONT></FONT></P>
+<P><FONT SIZE=2 STYLE="font-size: 10pt">头文件：</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">#include
+&lt;linux/fs.h&gt;</SPAN></FONT></SPAN></FONT></FONT></P>
+<P><FONT SIZE=2 STYLE="font-size: 10pt">原形：</FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+file_operations {</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">struct
+module *owner;</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">loff_t
+(*llseek) (struct file *, loff_t, int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*read) (struct file *, char __user *, size_t, loff_t *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*write) (struct file *, const char __user *, size_t, loff_t *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*aio_read) (struct kiocb *, const struct iovec *, unsigned long,
+loff_t);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*aio_write) (struct kiocb *, const struct iovec *, unsigned long,
+loff_t);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*readdir) (struct file *, void *, filldir_t);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">unsigned
+int (*poll) (struct file *, struct poll_table_struct *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">long
+(*unlocked_ioctl) (struct file *, unsigned int, unsigned long);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">long
+(*compat_ioctl) (struct file *, unsigned int, unsigned long);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*mmap) (struct file *, struct vm_area_struct *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*open) (struct inode *, struct file *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*flush) (struct file *, fl_owner_t id);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*release) (struct inode *, struct file *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*fsync) (struct file *, int datasync);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*aio_fsync) (struct kiocb *, int datasync);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*fasync) (int, struct file *, int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*lock) (struct file *, int, struct file_lock *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*sendpage) (struct file *, struct page *, int, size_t, loff_t *,
+int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">unsigned
+long (*get_unmapped_area)(struct file *, unsigned long, unsigned
+long, unsigned long, unsigned long);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*check_flags)(int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*flock) (struct file *, int, struct file_lock *);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*splice_write)(struct pipe_inode_info *, struct file *, loff_t *,
+size_t, unsigned int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">ssize_t
+(*splice_read)(struct file *, loff_t *, struct pipe_inode_info *,
+size_t, unsigned int);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">int
+(*setlease)(struct file *, long, struct file_lock **);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">long
+(*fallocate)(struct file *file, int mode, loff_t offset,loff_t len);</SPAN></FONT></FONT></P>
+<P><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US">};</SPAN></FONT></FONT></P>
+<P><FONT SIZE=2 STYLE="font-size: 10pt">作用：内核内部通过</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">file</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">结构识别设备，通过</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">file_operations</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">数据结构提供文件系统的入口点函数，也就是访问设备驱动的函数</FONT></P>
+<P><FONT SIZE=2 STYLE="font-size: 10pt">常用的有</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">open
+</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">release</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">read</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">write</SPAN></FONT></SPAN></FONT></FONT><FONT SIZE=2 STYLE="font-size: 10pt">、</FONT><FONT FACE="DejaVu Serif, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN LANG="en-US"><FONT FACE="DejaVu Serif, serif"><SPAN LANG="en-US">ioctl</SPAN></FONT></SPAN></FONT></FONT></P>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>
